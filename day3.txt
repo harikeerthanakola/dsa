@@ -1,0 +1,7 @@
+Nested loops: loops inside loops.
+There are three types of solutions for any problem. 1)brute force 2)better 3)optimal
+for brute force, most of the solutions can be written using two  loops(loop inside loop).
+
+1)find out how many rows you need to print.
+2) how many columns you need to print.
+3)what to print and what not to print.
