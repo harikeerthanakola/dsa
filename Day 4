@@ -97,6 +97,18 @@ Using ternary operator:
 String res = (n==5)?("Yes"):("No");
 System.out.println("res");
 
+Enhanced “for” or “for-each” loop:
+
+In collections we don’t have index values, in those situations we have to use for-each loop.
+Eg:
+
+int[] arr={1,2,3,4,5};
+for(var:arr){
+    System.out.println(var);
+}
+
+
+
 
 
 
