@@ -1,0 +1,42 @@
+Recursion:
+Function calls itself again and again till it reaches its base condition.
+Two types:
+i)function calling same function itself and itself
+ii)function calling another function itself and itself till it meets the base condition .
+if we did not mention base condition properly, we will get an exception called stack overflow.
+Recursions are used to break the code.
+Write program to print factorial using recursion.
+5!=5*4!
+4!=4*3!
+3!=3*2!
+2!=2*1!
+1!=1*0!
+For every recursive call, elements will be pushed into a stack
+After reaching base condition, elements will be popped.
+For this question, 5 4 3 2 1 all these values will be pushed onto a stack.
+fact(n){
+    if(n==0)
+        return 1;
+    else{
+        return n*fact(n-1);
+    }
+}
+
+For fibonacci series
+fib(n){
+    if(n==0 || n==1)
+        return 1;
+    else{
+        return fib(n-2)+fib(n-1);
+    }
+}
+about max and min function:
+[1,2,3,4,5];
+max=Math.max(arr[i], max);
+min=Math.min(arr[i],min);
+What is happening is:
+if(max>arr[I])
+	return max;
+else
+	return arr[I];
+
