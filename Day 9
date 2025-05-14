@@ -1,0 +1,67 @@
+RECURSION, STRING AND ARRAYS
+
+If any data present in heap memory, doesn’t have a pointer is collected by Garbage collector.
+Ie, the data doesn’t have a pointer.
+You were given a string and remove a certain character from it.
+“asdghjkl” ———————>”asdhjkl”
+Assume that we are starting with two strings - input and output string.
+Initially output string is empty.
+Take the first char from str and store in a character variable .
+Check whether the variable is our targeted character. If it matches, just return output string else, append the character to the output string.
+Slice the string by one character. 
+To get a particular character, we use .charAt() method.
+To 
+Input string:			             	output string:
+“Hello”	 First recursive call			“”
+“ello”						              	“H”
+“llo”						                	“H”
+“lo”						                	“Hl”
+“o”					                   		“Hll”
+“”							                  “Hllo”
+When the input str becomes empty, we stop the recursion.(base case)
+Code:
+
+public class Main {
+    
+    static String skip(String ip, char chToRemove) {
+        if (ip.isEmpty()) {
+            return "";
+        }
+        char ch = ip.charAt(0);
+        if (ch == chToRemove) {
+            return skip(ip.substring(1), chToRemove);
+        } else {
+            return ch + skip(ip.substring(1), chToRemove);
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "asdfghjkl";
+        char toRemove = 'g';
+        String result = skip(input, toRemove);
+        System.out.println(result);  
+    }
+}
+From a given str, skip a word and print rest of the characters.
+
+public class Main {
+    
+    static String skip(String ip) {
+        if (ip.isEmpty()) {
+            return "";
+        }
+        char ch = ip.charAt(0);
+        if (ip.startsWith("Hello")) {
+            return skip(ip.substring(5));
+        } else {
+            return ch + skip(ip.substring(1));
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "asdfghHellojkl";
+        String toRemove = "Hello";
+        String result = skip(input);
+        System.out.println(result);  
+    }
+}
