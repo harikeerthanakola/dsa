@@ -1,0 +1,98 @@
+Dutch flag problem
+Initialise three pointers l,m at 0th index and h at n-1
+The elements between m and h are unsorted. We have traverse between m and h
+If arr[m]==0, swap arr[l] and arr[m]. And m++ l++
+If arr[m]==1, m++
+Else,  swap arr[m] and arr[h] and h- -
+Pseudo code:
+pseudo code:
+while(m<=h){
+  if(arr[m]==0){
+   swap(arr[m],arr[l]);
+    m++;
+  else if(arr[m]==1){
+    m++;
+  }
+  else{
+    swap(arr[m],arr[n]);
+  }
+}
+}
+Code:
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr={1,0,2,0,1,2,1,0,0,1};
+		int m=0;
+		int l=0;
+		int h=arr.length-1;
+		while(m<=h){
+		    if(arr[m]==0){
+		        int temp = arr[l];
+                arr[l] = arr[m];
+                arr[m] = temp;
+                l++;
+                m++;
+		    }
+		    else if(arr[m]==1){
+		        m++;
+		    }
+		    else{
+		        int temp = arr[h];
+                arr[h] = arr[m];
+                arr[m] = temp;
+                h--;
+		    }
+		}
+		for (int num : arr) {
+            System.out.print(num + " ");
+        }
+	}
+}
+Math.min(int a, int b);
+Math.max((int a, int b);
+Internally this happens:
+if(a>b){
+	return a;
+}
+else{
+	return b;
+}
+
+Collections framework:
+
+
+
+List, set and map are interfaces and rest of all terms are classes. 
+Interface contains incomplete methods and class contains complete methods.
+List is ordered and allows duplicates.
+Set is unordered and won’t accept duplicates.
+Maps contain key-value pairs.
+To iterate through set, we have to use for-each loop.
+ for(datatype var: arr)
+
+Set<Integer>values = new Hashset<>(); 
+No need to traverse through entire elements to find an element .
+Two sum:
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    int target=9;
+	    int[] arr={2,7,11,15};
+		Set<Integer>values = new HashSet<>();
+		for(int i=0;i<arr.length;i++){
+		    int remaining=target-arr[i];
+		    if(values.contains(remaining)){
+		        
+                int[] res = new int[]{remaining,arr[i] };
+                System.out.println(Arrays.toString(res)); 
+		    }
+		    values.add(arr[i]);
+		}
+
+	} 
+ 	
+}
+But here, we print the array numbers instead of indices.
