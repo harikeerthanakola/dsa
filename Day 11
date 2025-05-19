@@ -1,0 +1,34 @@
+1)Majority Element:(169)
+printing an elemnet from the array which repeats more than n/2 times. n=len(arr).
+->from the given array, assume that starting index of the array is majority element.
+->from the starting element, compare rest of the eleements.If we got same value=> count++, else=>count--
+->if count==0, it means still now we haven't seen the majority element. Again, select the new target element, the very next element becomes the new target element.
+-> at the end of for loop, if count >0, it means the majority is present. Taiking the target value, count how many times the element repeated in the array.
+code:
+class Solution {
+    public int majorityElement(int[] nums) {
+        int count = 0;
+        int target = nums[0];
+
+        for (int i=0;i<nums.length;i++) {
+            if (count == 0) {
+                target = nums[i];
+            }
+            if(nums[i]==target){
+                count++;
+            }else{
+                count--;
+            }
+        }
+
+        return target;
+    }
+}
+
+2)Longest consecutive elements of an array:(128)
+return the maximum number of elements that are consecutive.
+-> create a set . run a loop take the values from array and push into set using insert method.
+-> start iterating set values. we have to find whether the element is starting element or not by decreasing the value and checking the decreased value is present in the set or not.
+->if it is a starting value then start comparing the elements.
+
+
