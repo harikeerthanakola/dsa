@@ -31,4 +31,29 @@ return the maximum number of elements that are consecutive.
 -> start iterating set values. we have to find whether the element is starting element or not by decreasing the value and checking the decreased value is present in the set or not.
 ->if it is a starting value then start comparing the elements.
 
+3) program to print the substrings of a stirng:
+public class Main
+{
+	public static void main(String[] args) {
+		String ip="abc";
+		subseq(ip, "");
+	}
+	static void subseq(String ip, String op){
+	    if(ip.isEmpty()){
+	        System.out.println(op);
+	        return;
+	    }
+	    char ch=ip.charAt(0);
+	    subseq(ip.substring(1),op+ch);
+	    subseq(ip.substring(1),op);
+
+	}
+}
+
+4) Maximum points you can obtain from cards.(1423)
+[1,2,3,4,5,6,1]
+->we have to print the maximum sum of k elements and we have to include either the first or last element.
+ie, here sum=1+5+6=12
+
+
 
