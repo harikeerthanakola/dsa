@@ -6,10 +6,10 @@ substring: "a", "b", "c", "ab", "bc", "abc"
 subsequence: "a", "b", "c", "ab", "ac", "bc", "abc"
 | Type        | Contiguous | Order Matters | Example from `[1,2,3]` or `"abc"` |
 | ----------- | ---------- | ------------- | --------------------------------- |
-| Subarray    | ✅          | ✅             | `[1,2]`, `[2,3]`                  |
-| Subset =2^n | ❌          | ❌             | `[1,3]`, `[2]`                    |
-| Substring   | ✅          | ✅             | `"ab"`, `"bc"`                    |
-| Subsequence | ❌          | ✅             | `"ac"`, `"abc"`                   |
+| Subarray    | ✅          | ✅             | `[1,2]`, `[2,3]`                 |
+| Subset =2^n | ❌          | ❌             | `[1,3]`, `[2]`                   |
+| Substring   | ✅          | ✅             | `"ab"`, `"bc"`                   |
+| Subsequence | ❌          | ✅             | `"ac"`, `"abc"`                  |
 
 
 
@@ -17,6 +17,60 @@ subsequence: "a", "b", "c", "ab", "ac", "bc", "abc"
 
 
 1) Longest substring without repeating the element: leetcode-3
+-initialize l,r pointers at 0th index.
 - create a hashset.
--two pointer approach. i,r at oth index. charAt.contains. len is r-l+1
+-check r char in set, if r char is not present in set, push the r char into the set and move r.
+- if r char is not present, remove l char from set and move l.
+- find length ie, r-l+1 and alltime update max.
+- this is template of sliding window.
+
+code:
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String str="abcabcdb";
+	    HashSet <Character> set= new HashSet<>();
+	    int left=0;
+	   // int r=0;
+	    int maxLength=0;
+	    for(int right=0;right<str.length();right++){
+	        char current=str.charAt(right);
+	        while(set.contains(current)){
+	            set.remove(str.charAt(left));
+	            left++;
+	        }
+	        set.add(current);
+	        maxLength=Math.max(maxLength,right-left+1);
+	    }
+
+	    
+	    System.out.println(maxLength);
+	}
+}
+why are we using while and not if ? 
+Ans: while will check for multiple conditions but "if" checks only one condition.
+
+
+Greedy Algorithms:
+
+N-meetings in a room
+Job scheduling
+0/1 fractional knapsack
+
+
+Input: N = 4,W=50,values = {100,60,120}, weight[]={20,10,30}
+Problem Statement: You are given a set of N jobs where each job comes with a deadline and profit. The profit can only be earned upon completing the job within its deadline. Find the number of jobs done and the maximum profit that can be obtained. Each job takes a single unit of time and only one job can be performed at a time.
+
+Examples
+
+Example 1:
+
+Input: N = 4, Jobs = {(1,4,20),(2,1,10),(3,1,40),(4,1,30)}
+
+Output: 2 60
+
+Explanation: The 3rd job with a deadline 1 is performed during the first unit of time .The 1st job is performed during the second unit of time as its deadline is 4.
+Profit = 40 + 20 = 60
 
