@@ -1,0 +1,22 @@
+arr=[1,2,3]
+Subarray: [1], [2], [3], [1,2], [2,3], [1,2,3]
+subset: [], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]
+str="abc"
+substring: "a", "b", "c", "ab", "bc", "abc"
+subsequence: "a", "b", "c", "ab", "ac", "bc", "abc"
+| Type        | Contiguous | Order Matters | Example from `[1,2,3]` or `"abc"` |
+| ----------- | ---------- | ------------- | --------------------------------- |
+| Subarray    | ✅          | ✅             | `[1,2]`, `[2,3]`                  |
+| Subset =2^n | ❌          | ❌             | `[1,3]`, `[2]`                    |
+| Substring   | ✅          | ✅             | `"ab"`, `"bc"`                    |
+| Subsequence | ❌          | ✅             | `"ac"`, `"abc"`                   |
+
+
+
+
+
+
+1) Longest substring without repeating the element: leetcode-3
+- create a hashset.
+-two pointer approach. i,r at oth index. charAt.contains. len is r-l+1
+
