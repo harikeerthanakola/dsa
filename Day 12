@@ -55,7 +55,9 @@ Ans: while will check for multiple conditions but "if" checks only one condition
 
 Greedy Algorithms:
 
-N-meetings in a room
+N-meetings in a room:
+- do custom sorting and arrange the end meeting times in ascending order.
+-end meeting of current meeting should be less than next meeting start time.
 Job scheduling
 0/1 fractional knapsack
 
