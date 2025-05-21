@@ -1,0 +1,142 @@
+Linear search:
+Search the element in the array in a linear way.
+T(c)=O(n)
+1)write a program to print the index of the target element in the array.
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		int[] arr={5,8,11,14,16};
+		int target=14;
+		for(int i=0;i<arr.length;i++){
+		    if(arr[i]==target){
+		        return i;
+		    }
+		}
+		return -1;
+	}
+}
+
+Binary search:
+
+To reduce time complexity, while searching we use binary search. 
+  To perform binary search, the arrys should be sorted.
+ T(c)= O(logn)
+steps:
+-take two pointers left,right. initialize left=0, right=arr.length-1
+- run the loop from left to right.
+- break the loop when pointers cross each other.
+- find mid. l+r/2
+- compare middle element to the target if target is equal to element, return mid.
+-  if middle element < target, then the target lies in tthe right portion of array. 
+  right pointer will remain in its position. we have to move left pointer tp mid+1 
+- if middle element > target, then the target lies in tthe left portion of array. 
+  left pointer will remain in its position. we have to move left pointer tp mid-1
+
+  
+code:
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 8, 11, 14, 16};
+        int target = 14;
+        
+        int result = binarySearch(arr, target);
+        System.out.println(result);
+    
+    }
+
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (arr[mid] == target) {
+                return mid;
+            } else if (arr[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        return -1; 
+    }
+}
+
+from a given array, find the targetted element using binary search. you should not sort the array.
+  arr={7,8,1,2,3,4,5,6}
+target=7 
+here, the array is rotated and sorted.
+-take two pointers left,right. initialize left=0, right=arr.length-1
+- run the loop from left to right.
+- we have to find which half is sorted. if arr[mid]<arr[l], it means right half is sorted and if target lies in between arr[l] and arr[mid].
+  it means element is present in left half.left pointer will remain same and right pointer will move to mid-1    
+- else, element present in right half, right pointer will reamin same and left pointer will move to mid+1
+ - if arr[mid]>arr[l], it means left half is sorted and target lies in between arr[mid] and arr[r].
+  it means element lies in right half. right pointer will remain same and left pointer will move to mid+1
+-else, element lies in left half. then left pointer remains same and right pointer moves to mid-1.
+code:
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {7, 8, 1, 2, 3, 4, 5, 6};
+        int target = 7;
+
+        int result = searchInRotatedArray(arr, target);
+        System.out.println(result);
+    }
+
+    public static int searchInRotatedArray(int[] arr, int target) {
+        int left = 0;
+        int right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (arr[mid] == target) {
+                return mid;
+            }
+
+            
+            if (arr[left] <= arr[mid]) {
+                
+                if (arr[left] <= target && target < arr[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } 
+            
+            else {
+                if (arr[mid] < target && target <= arr[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+
+        return -1; 
+    }
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
