@@ -1,0 +1,56 @@
+Maximum product of subarray elements:
+
+arr={2,3,-6,4,0,5,2,3,-1,0,7,8,9,-3}
+initialise your product variable with 1
+In the subarray, if we have even no. of positive numbers then product will be positive. If odd, then the product is negative.
+If we have at least  a 0, start your product variable with 1.
+If you have negative value, the product of it’s prefix elements will be positive and product of suffix elements of the negative element will also be positive.
+Initialise the max variable to -♾️ (infinity).
+Code:
+
+public class Main {
+    public static int maxProduct(int[] arr) {
+    int n=arr.length;
+    int pre=1, suff=1;
+    int ans=Integer.MIN_VALUE;
+    for(int i=0;i<n;i++){
+        if(pre==0) pre=1;
+        if(suff==0) suff=1;
+        pre*=arr[i];
+        suff*=arr[n-i-1];
+        ans=Math.max(ans, Math.max(pre,suff));
+    }
+    return ans;
+    
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2,3,-6,4,0,5,2,3,-1,0,7,8,9,-3};
+
+        System.out.println("Maximum product subarray is: " + maxProduct(arr));
+    }
+}
+
+Leetcode: 229, 15, 56, 88, 4, 875, 1358, 424, 162, 1011
+
+Find the peak element (162):
+class Solution {
+    public int findPeakElement(int[] arr) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low < high) {
+            int mid = (low + high ) / 2;
+            if (arr[mid] < arr[mid + 1]) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+        return low;
+
+    }
+}
+
+
+
