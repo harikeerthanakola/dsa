@@ -3,4 +3,57 @@ Stacks and queues:
 Stacks:
 Stack is a special data structure. Which follows last in first out(filo). It is a linear data structure.
 We will get all the outputs in constant time for all stack operations. 
- 
+push():Adding the elements into stack
+
+Implementation:
+top=-1
+push(int a ){
+	top=top+1;  }
+
+pop(): deleting the last element in stack 
+pop(){
+	top=top-1;
+}
+peek(): return the topmost  element 
+peek(){
+ return top;
+}
+isEmpty(): checks whether the stack is empty or not
+isEmpty(){
+	if(top==-1)
+	return true;
+	else
+	return false;
+}
+Display() : prints all the stack elements 
+display(){
+    
+	}
+size(): getting the size of the stack
+return top+1;
+Queues:
+
+Queue is a special data structure which follows first in first out. It is a linear data structure.
+Types:
+Single ended queue:
+You can perform the operations from a single side only.
+Double ended :
+Operations can be performed from both sides.
+**Priority queue:
+The most important one which helps to solve heap problems.
+Types of priority queue : minqueue and maxqueue
+Minqueue: in whatever order, we add the elements, the elements will be arranged in ascending order.
+Maxqueue:  in whatever order we add the elements, the elements will be arranged in descending order.
+
+Queue methods:
+Offer : to add elements in queue
+Poll: to delete an element
+Peek: 
+Size
+Display
+isEmpty
+
+
+
+	
+
